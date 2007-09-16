@@ -1,26 +1,26 @@
-%define product		ResourceRegistries
-%define realVersion 1.3.4
-%define release 1
+%define Product ResourceRegistries
+%define product resourceregistries
+%define name    zope-%{Product}
+%define version 1.4.1
+%define bad_version %(echo %{version} | sed -e 's/\\./-/g')
+%define release %mkrel 1
 
-%define version %(echo %{realVersion} | sed -e 's/-/./g')
 %define zope_minver	2.7
-
 %define zope_home	%{_prefix}/lib/zope
 %define software_home	%{zope_home}/lib/python
 
-
-Summary:	Registries for linked style sheet files and javascripts
-Name:		zope-%{product}
+Name:		%{name}
 Version:	%{version}
-Release:	%mkrel %{release}
+Release:	%{release}
+Summary:	Registries for linked style sheet files and javascripts
 License:	GPL
 Group:		System/Servers
-Source:		http://plone.org/products/resourceregistries/releases/%{version}/ResourceRegistries-%{realVersion}.tar.bz2
-URL:		http://plone.org/products/resourceregistries/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
-BuildArch:	noarch
+URL:        http://plone.org/products/%{product}
+Source:     http://plone.org/products/%{product}/releases/%{version}/%{product}-%{bad_version}.tgz
 Requires:	zope >= %{zope_minver}
 Requires:	zope-Archetypes
+BuildArch:  noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 
 %description
