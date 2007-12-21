@@ -20,6 +20,7 @@ Source:     http://plone.org/products/%{product}/releases/%{version}/%{product}-
 Requires:	zope >= %{zope_minver}
 Requires:	zope-Archetypes
 BuildArch:  noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 
 %description
